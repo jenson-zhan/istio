@@ -40,7 +40,7 @@ webhooks:
       - key: name
         operator: NotIn
         values:
-        - {{ .Release.Namespace }}
+        {{ toYaml .Values.sidecarInjectorWebhook.excludeNamespaces | indent 8 | trim }}
       - key: istio-injection
         operator: NotIn
         values:
